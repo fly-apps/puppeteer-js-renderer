@@ -1,6 +1,6 @@
 # js-renderer
 
-This is an online puppeteer service to render pages with javascript (js). Mainly useful for web scraping (not using splash).
+This is an online puppeteer service to render pages with javascript (js). Mainly useful for web scraping (not using splash). It is a service that executes JS on the page/URL and then returns the resulting DOM. If you run it closer to your users the response times will be much faster.
 
 At times while scraping web pages you will come across websites or web pages that only render on a browser that renders the loaded javascript. If you curl it or use something like [Scrapy](https://scrapy.org/), you just end up with not useful HTML.
 
@@ -32,7 +32,7 @@ The hit `http://localhost:8080/api/render?url=https://instagram.com`
 
 If you want to use it for scraping, use the following URL on Fly.io:
 
-https://js-renderer.fly.dev/api/render?url=https://instagram.com
+https://js-renderer-fly.fly.dev/api/render?url=https://instagram.com
 
 ### Styles broken
 
@@ -40,7 +40,7 @@ Styles and images will look broken but the HTML tags will be there. Happy Web Sc
 
 ## How to deploy it on fly.io
 
-Fly is a platform for applications that need to run globally. It runs your code close to users and scales compute in cities where your app is busiest. Write your code, package it into a Docker image, deploy it to Fly's platform and let that do all the work to keep your app snappy.
+[Fly.io](https://fly.io) is a platform for applications that need to run globally. It runs your code close to users and scales compute in cities where your app is busiest. Write your code, package it into a Docker image, deploy it to Fly's platform and let that do all the work to keep your app snappy.
 
 Fly.io has great [documentation](https://fly.io/docs/) to get started. You can find a quick speed run how how to get your app running closer to your users with this [guide](https://fly.io/docs/speedrun/). Please follow the following steps to deploy it on fly.io
 
@@ -48,4 +48,24 @@ Fly.io has great [documentation](https://fly.io/docs/) to get started. You can f
 1. Register on fly with `flyctl auth signup` , if you already have a fly account login with `flyctl auth login`
 1. Clone this repo with `git clone git@github.com:geshan/js-renderer-fly.git`
 1. Then run `cd js-renderer-fly`
-1. After that execult `flyctl init`
+1. After that execute `flyctl init`
+1. Then type in a name like `js-renderer-fly`
+1. Then select and org, generally it will be your firstname-lastname
+1. After that, select `Dockerfile` as the builder
+1. It should create a fly.toml file in the project root (I have not committed it, it is in .gitignore). Below is a screenshot of `flyctl init` output I got:
+    ![Flyctl init output for js-renderer](imgs/01fly-init.png?raw=true)
+1. Now run `flyctl deploy` to deploy the app -- this will take some time it will build the container, push it and deploy it. Below is a screenshot after `flyctl deploy` ended
+    ![Flyctl deploy output for js-renderer](imgs/02fly-deploy.png?raw=true)
+1. Then you can try `flyctl info` it will give the details of the app including host name. In addition to it, some more details will be added to your `fly.toml` file like the internal port of the container, service's concurrency and timeouts.
+1. Following that, you can try `flyctl open` and your app will open on the browser. For me it was opening `https://js-renderer-fly.fly.dev`
+1. To try your specific URL suffix it with `/api/render?url=<your-url>` like `/api/render?url=https://instagram.com` as Instagram is built with react a regular curl like reqeust will not render the final DOM.
+1. Enjoy!
+
+### Fly default resources
+
+So I wanted to check how much resources were allocated to this app on fly by default. It was easy to know with the following commands
+
+1. `flyctl scale show` - showed me VM Size: micro-2x
+1. `flyctl scale vm` - showed me micro-2x is a 0.25 CPU cores with 512 MB of memory.
+
+If you want to increase CPU/memory or run more instances in a particular region please refer to the official fly docs on [scaling](https://fly.io/docs/scaling/).
