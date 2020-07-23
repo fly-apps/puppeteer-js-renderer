@@ -62,4 +62,6 @@ Fly.io has great [documentation](https://fly.io/docs/) to get started. You can f
 
 1. Then you can try `flyctl info` - it will give the details of the app including host name. In addition to it, some more details will be added to your `fly.toml` file like the internal port of the container, service's concurrency and timeouts.
 
-1. Following that, you can try `flyctl open` and your app will open on the browser. For me it was opening `https://js-renderer-fly.fly.dev` 
+1. Following that, you can try `flyctl open` and your app will open on the browser. For me it was opening `https://js-renderer-fly.fly.dev`
+1. To try your specific URL suffix it with `/api/render?url=<your-url>` like `/api/render?url=https://instagram.com` as Instagram is built with react a regular curl like reqeust will not render the final DOM.
+1. Enjoy!
