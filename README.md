@@ -32,7 +32,7 @@ The hit `http://localhost:8080/api/render?url=https://instagram.com`
 
 If you want to use it for scraping, use the following URL on Fly.io:
 
-https://js-renderer.fly.dev/api/render?url=https://instagram.com
+https://js-renderer-fly.fly.dev/api/render?url=https://instagram.com
 
 ### Styles broken
 
