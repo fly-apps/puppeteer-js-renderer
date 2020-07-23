@@ -67,3 +67,5 @@ So I wanted to check how much resources were allocated to this app on fly by def
 
 1. `flyctl scale show` - showed me VM Size: micro-2x
 1. `flyctl scale vm` - showed me micro-2x is a 0.25 CPU cores with 512 MB of memory.
+
+If you want to increase CPU/memory or run more instances in a particular region please refer to the official fly docs on [scaling](https://fly.io/docs/scaling/).
