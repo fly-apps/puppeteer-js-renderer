@@ -1,6 +1,6 @@
 # js-renderer
 
-This is an online puppeteer service to render pages with javascript (js). Mainly useful for web scraping (not using splash).
+This is an online puppeteer service to render pages with javascript (js). Mainly useful for web scraping (not using splash). It is a service that executes JS on the page/URL and then returns the resulting DOM. If you run it closer to your users the response times will be much faster.
 
 At times while scraping web pages you will come across websites or web pages that only render on a browser that renders the loaded javascript. If you curl it or use something like [Scrapy](https://scrapy.org/), you just end up with not useful HTML.
 
@@ -56,7 +56,14 @@ Fly.io has great [documentation](https://fly.io/docs/) to get started. You can f
     ![Flyctl init output for js-renderer](imgs/01fly-init.png?raw=true)
 1. Now run `flyctl deploy` to deploy the app -- this will take some time it will build the container, push it and deploy it. Below is a screenshot after `flyctl deploy` ended
     ![Flyctl deploy output for js-renderer](imgs/02fly-deploy.png?raw=true)
-1. Then you can try `flyctl info` - it will give the details of the app including host name. In addition to it, some more details will be added to your `fly.toml` file like the internal port of the container, service's concurrency and timeouts.
+1. Then you can try `flyctl info` it will give the details of the app including host name. In addition to it, some more details will be added to your `fly.toml` file like the internal port of the container, service's concurrency and timeouts.
 1. Following that, you can try `flyctl open` and your app will open on the browser. For me it was opening `https://js-renderer-fly.fly.dev`
 1. To try your specific URL suffix it with `/api/render?url=<your-url>` like `/api/render?url=https://instagram.com` as Instagram is built with react a regular curl like reqeust will not render the final DOM.
 1. Enjoy!
+
+### Fly default resources
+
+So I wanted to check how much resources were allocated to this app on fly by default. It was easy to know with the following commands
+
+1. `flyctl scale show` - showed me VM Size: micro-2x
+1. `flyctl scale vm` - showed me micro-2x is a 0.25 CPU cores with 512 MB of memory.
