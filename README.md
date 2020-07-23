@@ -48,4 +48,18 @@ Fly.io has great [documentation](https://fly.io/docs/) to get started. You can f
 1. Register on fly with `flyctl auth signup` , if you already have a fly account login with `flyctl auth login`
 1. Clone this repo with `git clone git@github.com:geshan/js-renderer-fly.git`
 1. Then run `cd js-renderer-fly`
-1. After that execult `flyctl init`
+1. After that execute `flyctl init`
+1. Then type in a name like `js-renderer-fly`
+1. Then select and org, generally it will be your firstname-lastname
+1. After that, select `Dockerfile` as the builder
+1. It should create a fly.toml file in the project root (I have not committed it, it is in .gitignore). Below is a screenshot of `flyctl init` output I got:
+
+![Flyctl init output for js-renderer](imgs/01fly-init.png?raw=true)
+
+1. Now run `flyctl deploy` to deploy the app -- this will take some time it will build the container, push it and deploy it. Below is a screenshot after `flyctl deploy` ended
+
+![Flyctl deploy output for js-renderer](imgs/02fly-deploy.png?raw=true)
+
+1. Then you can try `flyctl info` - it will give the details of the app including host name. In addition to it, some more details will be added to your `fly.toml` file like the internal port of the container, service's concurrency and timeouts.
+
+1. Following that, you can try `flyctl open` and your app will open on the browser. For me it was opening `https://js-renderer-fly.fly.dev` 
