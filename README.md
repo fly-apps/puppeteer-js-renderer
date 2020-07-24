@@ -1,10 +1,10 @@
 # js-renderer
 
-This is an online puppeteer service to render pages with javascript (js). Mainly useful for web scraping (not using splash). It is a service that executes JS on the page/URL and then returns the resulting DOM. If you run it closer to your users the response times will be much faster.
+JavaScript is the bane of a web scraper's life. Scraping is all about extracting data from a web page and JavaScript is there adding content, hiding blocks, moving the DOM around and just reading the HTML from the server is just not enough. What you ideally want is a way to run all that JavaScript on the page so you can see what's left after that. Then you can get down to some serious scraping.
 
-At times while scraping web pages you will come across websites or web pages that only render on a browser that renders the loaded javascript. If you curl it or use something like [Scrapy](https://scrapy.org/), you just end up with not useful HTML.
+There are tools to do this out there but most have their own compliactions or restrictions that stop them from being used out on the edge. Js-renderer-fly has none of those problems and with Fly, you can deploy to close to your users too.
 
-This project aims to solve that issue with Puppeteer. With Scrapy you can use [Splash](https://github.com/scrapy-plugins/scrapy-splash) but it is Scrapy specific and not easy to configure.
+This is an online puppeteer service to render pages with javascript (js) very useful for web scraping.
 
 ## Uses
 
@@ -44,19 +44,21 @@ Styles and images will look broken but the HTML tags will be there. Happy Web Sc
 
 Fly.io has great [documentation](https://fly.io/docs/) to get started. You can find a quick speed run how how to get your app running closer to your users with this [guide](https://fly.io/docs/speedrun/). Please follow the following steps to deploy it on fly.io
 
+### Prerequisites
+
 1. [Install](https://fly.io/docs/getting-started/installing-flyctl/) the flyctl CLI command
 1. Register on fly with `flyctl auth signup` , if you already have a fly account login with `flyctl auth login`
-1. Clone this repo with `git clone git@github.com:geshan/js-renderer-fly.git`
+
+### Steps
+
+1. Clone this repo with `git clone git@github.com:geshan/js-renderer-fly.git` if you are logged in the SSH support enabled else try `https://github.com/geshan/js-renderer-fly.git`
 1. Then run `cd js-renderer-fly`
-1. After that execute `flyctl init`
-1. Then type in a name like `js-renderer-fly`
+1. After that execute `flyctl init --dockerfile` hit return for a app name to be generated (unless there's a name you really want), I tried with: `js-renderer-fly`
 1. Then select and org, generally it will be your firstname-lastname
-1. After that, select `Dockerfile` as the builder
 1. It should create a fly.toml file in the project root (I have not committed it, it is in .gitignore). Below is a screenshot of `flyctl init` output I got:
     ![Flyctl init output for js-renderer](imgs/01fly-init.png?raw=true)
-1. Now run `flyctl deploy` to deploy the app -- this will take some time it will build the container, push it and deploy it. Below is a screenshot after `flyctl deploy` ended
-    ![Flyctl deploy output for js-renderer](imgs/02fly-deploy.png?raw=true)
-1. Then you can try `flyctl info` it will give the details of the app including host name. In addition to it, some more details will be added to your `fly.toml` file like the internal port of the container, service's concurrency and timeouts.
+1. Now run `flyctl deploy` to deploy the app -- this will take some time it will build the container, push it and deploy it. It will build the docker container, push it to the fly docker container registery and deploy it giving out information about the number of instances and their health.
+1. Then you can try `flyctl info` it will give the details of the app including host name. 
 1. Following that, you can try `flyctl open` and your app will open on the browser. For me it was opening `https://js-renderer-fly.fly.dev`
 1. To try your specific URL suffix it with `/api/render?url=<your-url>` like `/api/render?url=https://instagram.com` as Instagram is built with react a regular curl like reqeust will not render the final DOM.
 1. Enjoy!
