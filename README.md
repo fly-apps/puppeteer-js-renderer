@@ -1,18 +1,13 @@
 # js-renderer
 
-JavaScript is the bane of a web scraper's life. Scraping is all about extracting data from a web page and JavaScript is there adding content, hiding blocks, moving the DOM around and just reading the HTML from the server is just not enough. What you ideally want is a way to run all that JavaScript on the page so you can see what's left after that. Then you can get down to some serious scraping.
+JavaScript is the bane of a web scraper's life. Scraping is all about extracting data from a web page and JavaScript is there adding content, hiding blocks and moving the DOM around. Just reading the HTML from the server is just not enough. What you ideally want is a way to run all that JavaScript on the page so you can see what's left after that. Then you can get down to some serious scraping.
 
-There are tools to do this out there but most have their own compliactions or restrictions that stop them from being used out on the edge. Js-renderer-fly has none of those problems and with Fly, you can deploy to close to your users too.
-
-This is an online [puppeteer](https://pptr.dev/) service to render pages with javascript (js) very useful for web scraping.
-
-## Uses
-
-This project uses Puppeteer to render the page as a full browser and Express to open Puppeter as an API.
+There are tools to do this out there but most have their own complications or restrictions that stop them from being used out on the edge. Js-renderer-fly has none of those problems and with [Fly](https://fly.io), you can deploy apps close to your users too. At its core, js-renderer-fly is a puppeteer-based service. [Puppeteer](https://pptr.dev/) is a package which renders pages using a headless Chrome instance, executing the JavaScript within the page.
 
 ## Quick Try
 
-There is a youtube views puller included to try out, you can run the following to see the views of "Despacito" apparently the most viewed youtube video:
+A typical youtube page will add views count on it only when the javascript on that page executes. These are the types of use cases where js-renderer-fly comes in very handy. Js-renderer-fly will execute the javascript in the youtube page and after that pull out the views and title of the video value can be scraped.
+As an example, you can run the following command to see the views of "Despacito" apparently the most viewed youtube video:
 
 ```
 node yt-views.js
