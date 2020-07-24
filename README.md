@@ -79,6 +79,10 @@ Fly.io has great [documentation](https://fly.io/docs/) to get started. You can f
 1. To try your specific URL suffix it with `/api/render?url=<your-url>` like `/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk` as Youtube pages will not render the final DOM with a regular curl.
 1. Enjoy!
 
+## More fly commands
+
+You can suspend your service with `flyctl suspend` it will pause your service until you resume it. If you try `flyctl status` after suspend it will not show any isntances running. To get the instances back execute `flyctl resume`.
+
 ### Fly default resources
 
 So I wanted to check how much resources were allocated to this app on fly by default. It was easy to know with the following commands
@@ -88,11 +92,7 @@ So I wanted to check how much resources were allocated to this app on fly by def
 
 If you want to increase CPU/memory or run more instances in a particular region please refer to the official fly docs on [scaling](https://fly.io/docs/scaling/).
 
-### More fly commands
-
-You can suspend your service with `flyctl suspend` it will pause your service until you resume it. If you try `flyctl status` after suspend it will not show any isntances running. To get the instances back execute `flyctl resume`.
-
-#### Fly on 3 continents
+### Flying the app on 3 continents
 
 Now your service is running well in one data center for me it was iad which is `Ashburn, Virginia (US)`. Now let's add some more:
 
