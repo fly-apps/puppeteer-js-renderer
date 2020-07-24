@@ -7,7 +7,7 @@ const axrio = require('@geshan/axrio');
     const $ = await axrio.getPage(`https://js-renderer-fly.fly.dev/api/render?url=${ytVideoUrl}`, 12000);
     const title = $('h1.title>yt-formatted-string').text();
     const views = $('span.view-count').text();
-    console.log(`${title}  has ${views}`);
+    console.log(`${title} has ${views}`);
   } catch(e) {
     console.log(`Error while fetching views: `, e);
   }
