@@ -24,6 +24,13 @@ If you want to try any other video just pass the youtube video URL as a param to
 node yt-views https://www.youtube.com/watch?v=XqZsoesa55w
 ```
 
+It should give you an output like below:
+
+```
+Pulling views from youtube, please wait...
+Baby Shark Dance | Sing and Dance! | @Baby Shark Official | PINKFONG Songs for Children  has 6,077,338,169 views
+```
+
 `https://www.youtube.com/watch?v=XqZsoesa55w` - Baby shark is the second most popular video on youtube.
 
 ## Run locally
