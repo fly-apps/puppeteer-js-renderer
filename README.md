@@ -7,10 +7,10 @@ There are tools to do this out there but most have their own complications or re
 ## Quick Try
 
 A typical youtube page will add views count on it only when the javascript on that page executes. These are the types of use cases where js-renderer-fly comes in very handy. Js-renderer-fly will execute the javascript on the youtube page and after that pull out the views and the title of the video value can be scraped.
-As an example, you can run the following command to see the views of "Despacito" apparently the most viewed youtube video:
+As an example, you can run the following command to see the views of "Despacito" apparently the most viewed youtube video, if you have node installed locally:
 
 ```
-node yt-views.js
+git clone git@github.com:geshan/js-renderer-fly.git && cd js-renderer-fly && npm install && node yt-views.js
 ```
 
 If you want to try any other video just pass the youtube video URL as a param to the script like below:
@@ -26,16 +26,31 @@ Pulling views from youtube, please wait...
 Baby Shark Dance | Sing and Dance! | @Baby Shark Official | PINKFONG Songs for Children  has 6,077,338,169 views
 ```
 
-It is the second most popular video on youtube.
+Baby Shark Dance is the second most popular video on youtube.
 
 ## Run locally
 
-If you have node installed you execute the following to run this service:
+If you have node installed you execute the following to run this service on your local machine:
+
+First clone the repository and go into the folder with:
+
+```
+git clone git@github.com:geshan/js-renderer-fly.git
+cd js-renderer-fly
+```
+
+### Run with node
+
+If you have node installed locally run the following:
 
 ```
 npm install
 npm start
 ```
+
+Then navigate to `http://localhost:8080/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk` on your browser to view the output.
+
+### Run with docker
 
 If you want to run with docker, execute the following:
 
@@ -43,9 +58,9 @@ If you want to run with docker, execute the following:
 docker-compose up
 ```
 
-The hit `http://localhost:8080/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk`
+Then hit `http://localhost:8080/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk` on your browser to see the output.
 
-## How to use it
+## How to use it as a service
 
 If you want to use it for scraping, use the following URL on Fly.io:
 
