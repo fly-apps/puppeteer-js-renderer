@@ -30,7 +30,7 @@ It is the second most popular video on youtube.
 
 ## Run locally
 
-If you have node install you can do:
+If you have node installed you execute the following to run this service:
 
 ```
 npm install
@@ -40,7 +40,6 @@ npm start
 If you want to run with docker, execute the following:
 
 ```
-npm install
 docker-compose up
 ```
 
