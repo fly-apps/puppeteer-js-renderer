@@ -23,7 +23,7 @@ It should give you an output like below:
 
 ```
 Pulling views from youtube, please wait...
-Baby Shark Dance | Sing and Dance! | @Baby Shark Official | PINKFONG Songs for Children  has 6,077,338,169 views
+Baby Shark Dance | Sing and Dance! | @Baby Shark Official | PINKFONG Songs for Children has 6,077,338,169 views
 ```
 
 Baby Shark Dance is the second most popular video on youtube.
