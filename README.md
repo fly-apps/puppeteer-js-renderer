@@ -26,13 +26,13 @@ npm install
 docker-compose up
 ```
 
-The hit `http://localhost:8080/api/render?url=https://instagram.com`
+The hit `http://localhost:8080/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk`
 
 ## How to use it
 
 If you want to use it for scraping, use the following URL on Fly.io:
 
-https://js-renderer-fly.fly.dev/api/render?url=https://instagram.com
+https://js-renderer-fly.fly.dev/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk
 
 ### Styles broken
 
@@ -55,12 +55,11 @@ Fly.io has great [documentation](https://fly.io/docs/) to get started. You can f
 1. Then run `cd js-renderer-fly`
 1. After that execute `flyctl init --dockerfile` hit return for a app name to be generated (unless there's a name you really want), I tried with: `js-renderer-fly`
 1. Then select and org, generally it will be your firstname-lastname
-1. It should create a fly.toml file in the project root (I have not committed it, it is in .gitignore). Below is a screenshot of `flyctl init` output I got:
-    ![Flyctl init output for js-renderer](imgs/01fly-init.png?raw=true)
+1. It should create a fly.toml file in the project root (I have not committed it, it is in .gitignore).
 1. Now run `flyctl deploy` to deploy the app -- this will take some time it will build the container, push it and deploy it. It will build the docker container, push it to the fly docker container registery and deploy it giving out information about the number of instances and their health.
 1. Then you can try `flyctl info` it will give the details of the app including host name. 
 1. Following that, you can try `flyctl open` and your app will open on the browser. For me it was opening `https://js-renderer-fly.fly.dev`
-1. To try your specific URL suffix it with `/api/render?url=<your-url>` like `/api/render?url=https://instagram.com` as Instagram is built with react a regular curl like reqeust will not render the final DOM.
+1. To try your specific URL suffix it with `/api/render?url=<your-url>` like `/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk` as Youtube pages will not render the final DOM with a regular curl.
 1. Enjoy!
 
 ### Fly default resources
