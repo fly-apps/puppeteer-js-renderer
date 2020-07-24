@@ -10,6 +10,22 @@ This is an online puppeteer service to render pages with javascript (js) very us
 
 This project uses Puppeteer to render the page as a full browser and Express to open Puppeter as an API.
 
+## Quick Try
+
+There is a youtube views puller included to try out, you can run the following to see the views of "Despacito" apparently the most viewed youtube video:
+
+```
+node yt-views.js
+```
+
+If you want to try any other video just pass the youtube video URL as a param to the script like below:
+
+```
+node yt-views https://www.youtube.com/watch?v=XqZsoesa55w
+```
+
+`https://www.youtube.com/watch?v=XqZsoesa55w` - Baby shark is the second most popular video on youtube.
+
 ## Run locally
 
 If you have node install you can do:
@@ -70,3 +86,17 @@ So I wanted to check how much resources were allocated to this app on fly by def
 1. `flyctl scale vm` - showed me micro-2x is a 0.25 CPU cores with 512 MB of memory.
 
 If you want to increase CPU/memory or run more instances in a particular region please refer to the official fly docs on [scaling](https://fly.io/docs/scaling/).
+
+### More fly commands
+
+You can suspend your service with `flyctl suspend` it will pause your service until you resume it. If you try `flyctl status` after suspend it will not show any isntances running. To get the instances back execute `flyctl resume`.
+
+#### Fly on 3 continents
+
+Now your service is running well in one data center for me it was iad which is `Ashburn, Virginia (US)`. Now let's add some more:
+
+1. To see the regions availble run `flyctl platform regions` , I could see regions all over the world from Oregon to Sydney.
+1. Let's add an instance to Australia in Sydney, to do this run `flyctl regions add syd` yes it is that easy.
+1. Now check `flyctl status` and you will see an instance running on Sydney
+1. Lets add one more in Europe at Amsterdam with `flyctl regions add ams`, great so we are mostly covered with the app running in 3 continents.
+1. Of course you can run `flyctl status` again to see your app shining in 3 continents.
