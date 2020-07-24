@@ -4,7 +4,7 @@ JavaScript is the bane of a web scraper's life. Scraping is all about extracting
 
 There are tools to do this out there but most have their own compliactions or restrictions that stop them from being used out on the edge. Js-renderer-fly has none of those problems and with Fly, you can deploy to close to your users too.
 
-This is an online puppeteer service to render pages with javascript (js) very useful for web scraping.
+This is an online [puppeteer](https://pptr.dev/) service to render pages with javascript (js) very useful for web scraping.
 
 ## Uses
 
