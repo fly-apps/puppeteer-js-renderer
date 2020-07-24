@@ -71,7 +71,7 @@ Fly.io has great [documentation](https://fly.io/docs/) to get started. You can f
 1. Clone this repo with `git clone git@github.com:geshan/js-renderer-fly.git` if you are logged in the SSH support enabled else try `https://github.com/geshan/js-renderer-fly.git`
 1. Then run `cd js-renderer-fly`
 1. After that execute `flyctl init --dockerfile` hit return for a app name to be generated (unless there's a name you really want), I tried with: `js-renderer-fly`
-1. Then select and org, generally it will be your firstname-lastname
+1. Subsequently, you can select and organization, generally it will be your firstname-lastname on the prompt
 1. It should create a fly.toml file in the project root (I have not committed it, it is in .gitignore).
 1. Now run `flyctl deploy` to deploy the app -- this will take some time it will build the container, push it and deploy it. It will build the docker container, push it to the fly docker container registery and deploy it giving out information about the number of instances and their health.
 1. Then you can try `flyctl info` it will give the details of the app including host name. 
