@@ -50,9 +50,9 @@ Baby Shark Dance | Sing and Dance! | @Baby Shark Official | PINKFONG Songs for C
 
 ### What just happened here?
 
-There is a small scraper written with [Axrio](https://www.npmjs.com/package/@geshan/axrio) npm package that combines the popular [Axios](https://www.npmjs.com/package/axios) library and [Cheerio](https://www.npmjs.com/package/cheerio) to create a mini scraper. Axios is used to make requests and Cheerio acts like DOM navigator parsing the markup and giving us an API for traversing/manipulating the resulting data structure. You can kickstart a small scraper with Axrio too.
+A small scraper written with [Axrio](https://www.npmjs.com/package/@geshan/axrio) npm package was executed to show the view counts. Axrio combines the popular [Axios](https://www.npmjs.com/package/axios) library and [Cheerio](https://www.npmjs.com/package/cheerio) to create a mini scraper. Axios is used to make requests and Cheerio acts like DOM navigator parsing the markup and giving us an API for traversing/manipulating the resulting data structure. You can kickstart a small scraper with Axrio too.
 
-The [yt-views.js](./yt-views) is a basic scraper which performs a GET request for the given YouTube URL with js-renderer-fly. Using js-renderer-fly will result in getting the final DOM after the page's javascrpt executes. Then it parses the title and views count out of the rendered page's markup and prints it on the console.
+The [yt-views.js](./yt-views) is a basic scraper which performs a GET request for the given YouTube URL with js-renderer-fly. Using js-renderer-fly will result in getting the final DOM after the page's javascrpt executes. Then it parses the title and views count out of the rendered page's markup and prints it on the console.q
 
 It used the js-renderer-fly URL that is already deployed and running on Fly.io. To start your own js-renderer-fly on fly.io jump to the "[Use it as a service](#how-to-use-it-as-a-service)" section.
 
