@@ -54,7 +54,7 @@ To show the YouTube video views count, a small scraper written with [Axrio](http
 
 The [yt-views.js](./yt-views) is a basic scraper which performs a GET request for the given YouTube URL with js-renderer-fly. Using js-renderer-fly will result in getting the final DOM after the page's javascript executes. Then it parses the title and views count out of the rendered page's markup and prints it on the console.q
 
-It used the js-renderer-fly service URL that is already deployed and running on Fly.io. To start your own js-renderer-fly on fly.io jump to the "[Use it as a service](#how-to-use-it-as-a-service)" section.
+It used the js-renderer-fly service URL that is already deployed and running on Fly.io. Have a look at "[how to use it as a service](#how-to-use-it-as-a-service)" part for more information. To start your own js-renderer-fly on fly.io jump to the "[how to deploy on fly.io](#how-to-deploy-it-on-flyio)" section.
 
 ## Run locally
 
