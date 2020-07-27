@@ -52,15 +52,15 @@ Baby Shark Dance | Sing and Dance! | @Baby Shark Official | PINKFONG Songs for C
 
 To show the YouTube video views count, a small scraper written with [Axrio](https://www.npmjs.com/package/@geshan/axrio) npm package was executed. Axrio combines the popular [Axios](https://www.npmjs.com/package/axios) library and [Cheerio](https://www.npmjs.com/package/cheerio) to create a mini scraper. Axios is used to make requests and Cheerio acts like DOM navigator parsing the markup and giving us an API for traversing/manipulating the resulting data structure. You can kickstart a small scraper with Axrio too.
 
-The [yt-views.js](./yt-views) is a basic scraper which performs a GET request for the given YouTube URL with js-renderer-fly. Using js-renderer-fly will result in getting the final DOM after the page's javascrpt executes. Then it parses the title and views count out of the rendered page's markup and prints it on the console.q
+The [yt-views.js](./yt-views) is a basic scraper which performs a GET request for the given YouTube URL with js-renderer-fly. Using js-renderer-fly will result in getting the final DOM after the page's javascript executes. Then it parses the title and views count out of the rendered page's markup and prints it on the console.q
 
-It used the js-renderer-fly URL that is already deployed and running on Fly.io. To start your own js-renderer-fly on fly.io jump to the "[Use it as a service](#how-to-use-it-as-a-service)" section.
+It used the js-renderer-fly service URL that is already deployed and running on Fly.io. To start your own js-renderer-fly on fly.io jump to the "[Use it as a service](#how-to-use-it-as-a-service)" section.
 
 ## Run locally
 
-If you have node installed and you have already cloned this repository. Given you have also run `npm install`,  run `npm start` to get this service running locally.
+If you have node installed on your machine, you already cloned this repository and ran `npm install`. Then run `npm start` to get this service running locally.
 
-Then navigate to `http://localhost:8080/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk` on your browser to view the javascrpt rendered output.
+Next step is to navigate to `http://localhost:8080/api/render?url=https://www.youtube.com/watch?v=kJQP7kiw5Fk` on your browser to view the javascript rendered output.
 
 ### Run with docker
 
