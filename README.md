@@ -135,5 +135,5 @@ Our service is running in one data center. For me, it's iad (Ashburn, Virginia) 
 1. To see the regions available run `flyctl platform regions`, I could see regions all over the world from Oregon to Sydney.
 1. Let's add an instance to Australia in Sydney, to do this run `flyctl regions add syd`, yes it is that easy.
 1. Now check `flyctl status` and you will see an instance running in Sydney
-1. Let’s add one more in Europe in Amsterdam with `flyctl regions add ams`, great so we are mostly covered with the app running in 3 continents.
+1. Let’s add one more in Europe in Amsterdam with `flyctl regions add ams`. So now we are mostly covered with the app running in 3 continents.
 1. Of course, you can run `flyctl status` again to see your app shining on 3 continents.
