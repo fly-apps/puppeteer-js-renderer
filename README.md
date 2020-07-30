@@ -3,21 +3,21 @@
 
 JavaScript is the bane of a web scraper's life. Scraping is all about extracting data from a web page and JavaScript is there adding content, hiding blocks, and moving the DOM around. Reading the HTML from the server is just not enough. What you ideally want is a way to run all that JavaScript on the page so you can see what's left after that. Then you can get down to some serious scraping.
 
-There are tools to do this out there but most have their own complications or restrictions that stop them from being used out on the edge. Js-renderer-fly has none of those problems and with [Fly](https://fly.io), you can deploy apps close to your users too. At its core, js-renderer-fly is a puppeteer-based service. [Puppeteer](https://pptr.dev/) is a package that renders pages using a headless Chrome instance, executing the JavaScript within the page.
+There are tools to do this out there but most have their own complications or restrictions that make them difficult to deploy. Puppeteer has none of those problems and with [Fly](https://fly.io), you can deploy puppeteer based applications close to your users. At its core, this project is a puppeteer-based service. [Puppeteer](https://pptr.dev/) is a package that renders pages using a headless Chrome instance, executing the JavaScript within the page.
 
 ## Quick Start
 
-A typical YouTube page will add the views count to itself only when the JavaScript on that page executes. These are the types of use cases where js-renderer-fly comes in very handy. Js-renderer-fly will execute the JavaScript on the YouTube page and, from the rendered page, extract the view count and the title of the video.
+A typical YouTube page will add the views count to itself only when the JavaScript on that page executes. These are the types of use cases where Puppeteer comes in very handy. Puppeteer can execute the JavaScript on the YouTube page and, from the rendered page, extract the view count and the title of the video.
 
 Lets get started
 
-### Install js-renderer-fly
+### Install example project
 
-To install js-renderer-fly locally, execute the following commands:
+To install this project locally, execute the following commands:
 
 ```
-git clone git@github.com:geshan/js-renderer-fly.git
-cd js-renderer-fly
+git clone https://github.com/fly-examples/puppeteer-js-renderer.git
+cd puppeteer-js-renderer
 npm install
 ```
 
@@ -53,9 +53,9 @@ Baby Shark Dance | Sing and Dance! | @Baby Shark Official | PINKFONG Songs for C
 
 To show the YouTube video views count, a small scraper written with [Axrio](https://www.npmjs.com/package/@geshan/axrio) npm package was executed. Axrio combines the popular [Axios](https://www.npmjs.com/package/axios) library and [Cheerio](https://www.npmjs.com/package/cheerio) to create a mini scraper. Axios is used to make requests and Cheerio acts like DOM navigator parsing the markup and giving us an API for traversing/manipulating the resulting data structure. You can kickstart a small scraper with Axrio too.
 
-The [yt-views.js](./yt-views) is a basic scraper which performs a GET request for the given YouTube URL with js-renderer-fly. Using js-renderer-fly will return the final DOM after the page's JavaScript executes. Then it parses the title and views count out of the rendered page's markup and prints it on the console.
+The [yt-views.js](./yt-views) is a basic scraper which performs a GET request for the given YouTube URL with Puppeteer. This will return the final DOM after the page's JavaScript executes. Then it parses the title and views count out of the rendered page's markup and prints it on the console.
 
-It uses the js-renderer-fly service that is already deployed and running on Fly.io. Have a look at he "[how to use it as a service](#how-to-use-it-as-a-service)" section for more information. To start your own js-renderer-fly on Fly.io jump to the "[how to deploy on fly.io](#how-to-deploy-it-on-flyio)" section.
+It uses the js-renderer-fly service that is already deployed and running on Fly.io. Have a look at he "[how to use it as a service](#how-to-use-it-as-a-service)" section for more information. To start your own instance on Fly.io jump to the "[how to deploy on fly.io](#how-to-deploy-it-on-flyio)" section.
 
 ## Run locally
 
