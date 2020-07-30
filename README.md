@@ -1,4 +1,5 @@
-# js-renderer
+# Puppeteer JS Renderer on Fly
+<!---- cut here --->
 
 JavaScript is the bane of a web scraper's life. Scraping is all about extracting data from a web page and JavaScript is there adding content, hiding blocks, and moving the DOM around. Reading the HTML from the server is just not enough. What you ideally want is a way to run all that JavaScript on the page so you can see what's left after that. Then you can get down to some serious scraping.
 
