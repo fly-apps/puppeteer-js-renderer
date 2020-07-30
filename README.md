@@ -23,7 +23,7 @@ npm install
 
 ### Your first scraper
 
-To quickly try js-renderer-fly after installing it, run the command below:
+To quickly try the project out after installing it, run the command below:
 
 ```
 node yt-views.js
